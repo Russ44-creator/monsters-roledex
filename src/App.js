@@ -3,6 +3,7 @@ import { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CardList from './components/card-list/card-list.component'
+import SearchBox from './components/search-box/search-box.comonent';
 
 class App extends Component {
   constructor(){
@@ -21,10 +22,7 @@ class App extends Component {
       .then((users) => this.setState(
         () => {
         return {monsters: users};
-      },
-        () => {
-          console.log(this.state);
-        }
+      }
       )
     );
   }
@@ -45,11 +43,10 @@ class App extends Component {
 
     return(
     <div className="App">
-       <input className='search-box' 
-              type='search' 
-              placeholder='search monsters' 
-              onChange={onSearchChange}
-      />
+       <SearchBox className='search-box'
+                  onChangeHandler={onSearchChange} 
+                  placeholder='search monsters'
+        />
 
        {/* {filteredMonsters.map((monster) => {
         return( 
@@ -60,7 +57,7 @@ class App extends Component {
         })
        } */}
 
-       <CardList />
+       <CardList monsters={filteredMonsters}/>
         
       </div>
     )
