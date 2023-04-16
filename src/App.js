@@ -11,7 +11,7 @@ const App = () =>{
 
   const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
-    setSearchField(searchField);
+    setSearchField(searchFieldString);
   };
 
   return (
